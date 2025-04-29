@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//! BottomNavigationBar
+
 class Page6 extends StatefulWidget {
   const Page6({Key? key}) : super(key: key);
 
@@ -9,30 +11,20 @@ class Page6 extends StatefulWidget {
 
 class _Page6State extends State<Page6> {
   int _currentIndex = 0;
-
-  final List<Widget> body = const [
-    Icon(Icons.home, size: 100, color: Colors.white),
-    Icon(Icons.menu, size: 100, color: Colors.white),
-    Icon(Icons.person, size: 100, color: Colors.white),
+  List<Widget> body = const [
+    Icon(Icons.home),
+    Icon(Icons.menu),
+    Icon(Icons.person),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text('Página 6', style: TextStyle(color: Colors.white)),
-        iconTheme: const IconThemeData(color: Colors.white),
-      ),
       body: Center(
         child: body[_currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey[700],
-        backgroundColor: Colors.white,
         onTap: (int newIndex) {
           setState(() {
             _currentIndex = newIndex;
@@ -50,7 +42,7 @@ class _Page6State extends State<Page6> {
           BottomNavigationBarItem(
             label: 'Profile',
             icon: Icon(Icons.person),
-          ),
+          )
         ],
       ),
     );

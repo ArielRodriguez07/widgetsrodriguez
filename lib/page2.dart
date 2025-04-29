@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+//! AnimatedDefaultTextStyle
+
 class Page2 extends StatefulWidget {
   const Page2({Key? key}) : super(key: key);
 
   @override
-  _Page2State createState() => _Page2State();
+  State<Page2> createState() => _Page2State();
 }
 
 class _Page2State extends State<Page2> {
@@ -18,18 +20,13 @@ class _Page2State extends State<Page2> {
       backgroundColor: Colors.greenAccent,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Página 2', style: TextStyle(color: Colors.white)),
-        iconTheme: IconThemeData(color: Colors.white),
+        title: const Text('Página 2', style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
-        // Utilizamos el Center para centrar todo el contenido
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.center, // Centra los elementos verticalmente
-          crossAxisAlignment:
-              CrossAxisAlignment.center, // Centra los elementos horizontalmente
-          children: [
-            // Aquí agregamos Widget010
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
             SizedBox(
               height: 120,
               child: AnimatedDefaultTextStyle(
@@ -54,13 +51,10 @@ class _Page2State extends State<Page2> {
                 "Switch",
               ),
             ),
-
-            SizedBox(height: 20),
-
-            // Botón de regresar
+            const SizedBox(height: 20),
             ElevatedButton.icon(
-              icon: Icon(Icons.arrow_back),
-              label: Text('Volver'),
+              icon: const Icon(Icons.arrow_back),
+              label: const Text('Volver'),
               onPressed: () => Navigator.pop(context),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,

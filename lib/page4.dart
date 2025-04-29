@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+//! AnimatedSwitcher
+
 class Page4 extends StatefulWidget {
   const Page4({Key? key}) : super(key: key);
 
   @override
-  _Page4State createState() => _Page4State();
+  State<Page4> createState() => _Page4State();
 }
 
 class _Page4State extends State<Page4> {
@@ -16,48 +18,36 @@ class _Page4State extends State<Page4> {
       backgroundColor: Colors.orangeAccent,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Página 4', style: TextStyle(color: Colors.white)),
-        iconTheme: IconThemeData(color: Colors.white),
+        title: const Text('Página 4', style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
-        // Centrado del contenido
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Centrado vertical
-          crossAxisAlignment: CrossAxisAlignment.center, // Centrado horizontal
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Animación con AnimatedSwitcher
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),
               child: Text(
                 '$_count',
                 style: const TextStyle(fontSize: 40),
-                key: ValueKey(_count), // Necesario para la transición
+                key: ValueKey(_count),
               ),
               transitionBuilder: (Widget child, Animation<double> animation) {
-                return ScaleTransition(
-                    scale: animation, child: child); // Animación de escala
+                return ScaleTransition(scale: animation, child: child);
               },
             ),
-            SizedBox(height: 20),
-            // Botón para aumentar el contador
             ElevatedButton(
               child: const Text('Add'),
               onPressed: () {
                 setState(() {
-                  _count += 1; // Incrementar el contador
+                  _count += 1;
                 });
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black, // Color de fondo del botón
-                foregroundColor: Colors.white, // Color del texto
-              ),
             ),
-            SizedBox(height: 20),
-
-            // Botón de regresar
+            const SizedBox(height: 20),
             ElevatedButton.icon(
-              icon: Icon(Icons.arrow_back),
-              label: Text('Volver'),
+              icon: const Icon(Icons.arrow_back),
+              label: const Text('Volver'),
               onPressed: () => Navigator.pop(context),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
+//!AnimatedPadding
+
 class Page3 extends StatefulWidget {
   const Page3({Key? key}) : super(key: key);
 
   @override
-  _Page3State createState() => _Page3State();
+  State<Page3> createState() => _Page3State();
 }
 
 class _Page3State extends State<Page3> {
@@ -16,33 +18,26 @@ class _Page3State extends State<Page3> {
       backgroundColor: Colors.purpleAccent,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Página 3', style: TextStyle(color: Colors.white)),
-        iconTheme: IconThemeData(color: Colors.white),
+        title: const Text('Página 3', style: TextStyle(color: Colors.white)),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
-        // Centrar todo el contenido
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.center, // Centra los elementos verticalmente
-          crossAxisAlignment:
-              CrossAxisAlignment.center, // Centra los elementos horizontalmente
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Botón para cambiar el padding
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors
-                    .orangeAccent, // Aquí cambiamos 'primary' por 'backgroundColor'
+                backgroundColor:
+                    Colors.orangeAccent, // Usando backgroundColor como antes
               ),
               child: const Text('Change padding'),
               onPressed: () {
                 setState(() {
-                  padValue = padValue == 0.0 ? 100.0 : 0.0; // Cambia el padding
+                  padValue = padValue == 0.0 ? 100.0 : 0.0;
                 });
               },
             ),
-            // Mostrar el valor actual del padding
             Text('Padding = $padValue'),
-            // Contenedor con animación de padding
             AnimatedPadding(
               padding: EdgeInsets.all(padValue),
               duration: const Duration(seconds: 2),
@@ -53,12 +48,10 @@ class _Page3State extends State<Page3> {
                 color: Colors.orangeAccent,
               ),
             ),
-            SizedBox(height: 20),
-
-            // Botón de regresar
+            const SizedBox(height: 20),
             ElevatedButton.icon(
-              icon: Icon(Icons.arrow_back),
-              label: Text('Volver'),
+              icon: const Icon(Icons.arrow_back),
+              label: const Text('Volver'),
               onPressed: () => Navigator.pop(context),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
